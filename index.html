@@ -140,21 +140,22 @@
 <!-- Манифест для домашнего экрана -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#000000">
+<!-- Включаем режим standalone на iPhone -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Иконка для домашнего экрана iPhone -->
+<link rel="apple-touch-icon" sizes="180x180" href="192.png">
 <!-- Фавиконка для браузера -->
 <link rel="icon" type="image/png" href="192.png">
 
-<!-- Иконка для домашнего экрана iOS -->
+<!-- Манифест для PWA (Android / Chrome) -->
+<link rel="manifest" href="manifest.json">
+
+<!-- iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" sizes="180x180" href="192.png">
 
-<!-- Манифест PWA -->
-<link rel="manifest" href="manifest.json">
+<!-- Цвет темы -->
 <meta name="theme-color" content="#000000">
-
-<!-- Service Worker (опционально, но нужен для PWA) -->
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-      .then(() => console.log('Service Worker зарегистрирован'));
-  }
-</script>
-
