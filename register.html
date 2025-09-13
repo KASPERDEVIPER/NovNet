@@ -2,98 +2,87 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>NovNet - Регистрация</title>
+  <title>Регистрация</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
       font-family: Arial, sans-serif;
-      background: #0044cc;
+      background: #1a1a1a;
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
 
-    .register-box {
-      background: white;
+    .container {
+      background: #2a2a2a;
       padding: 30px;
-      border-radius: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      width: 300px;
       text-align: center;
-      width: 320px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
-    .register-box img {
-      width: 80px;
-      margin-bottom: 15px;
-    }
-
-    .register-box h2 {
+    h2 {
       margin-bottom: 20px;
-      color: #333;
     }
 
-    .register-box input {
+    input {
       width: 90%;
-      padding: 12px;
+      padding: 10px;
       margin: 10px 0;
-      border: 1px solid #ccc;
+      border: none;
       border-radius: 8px;
-      font-size: 14px;
+      outline: none;
     }
 
-    .register-box a.button {
-      display: inline-block;
+    .btn {
       width: 95%;
       padding: 12px;
-      background: #4a8dff;
+      margin-top: 15px;
+      border: none;
       border-radius: 10px;
+      background: #4cafef;
       color: white;
       font-size: 16px;
-      margin-top: 10px;
-      text-decoration: none;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      box-shadow: 0 4px #2a7cb8;
       transition: all 0.2s ease;
     }
 
-    .register-box a.button:hover {
-      background: #336dff;
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .register-box a.button:active {
+    .btn:active {
+      box-shadow: 0 2px #2a7cb8;
       transform: translateY(2px);
-      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
     }
 
-    .register-box p {
+    .message {
       margin-top: 15px;
       font-size: 14px;
-    }
-
-    .register-box a.link {
-      color: #0044cc;
-      text-decoration: none;
+      color: lightgreen;
+      display: none;
     }
   </style>
 </head>
 <body>
-
-  <div class="register-box">
-    <img src="logo.png" alt="Логотип">
+  <div class="container">
     <h2>Регистрация</h2>
-    
-    <!-- Поля (пока просто для вида) -->
-    <input type="text" placeholder="Имя" required><br>
-    <input type="email" placeholder="Email" required><br>
-    <input type="password" placeholder="Пароль" required><br>
-    
-    <!-- Кнопка-ссылка вместо формы -->
-    <a href="messages.html" class="button">Зарегистрироваться</a>
-
-    <p>Уже есть аккаунт? <a href="index.html" class="link">Войти</a></p>
+    <form id="registerForm">
+      <input type="text" placeholder="Логин" required><br>
+      <input type="password" placeholder="Пароль" required><br>
+      <button type="submit" class="btn">Зарегистрироваться</button>
+    </form>
+    <p class="message" id="successMessage">✅ Успешная регистрация!</p>
   </div>
 
+  <script>
+    const form = document.getElementById('registerForm');
+    const message = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // блокируем реальную отправку
+      message.style.display = 'block'; // показываем сообщение
+    });
+  </script>
 </body>
 </html>
