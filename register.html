@@ -43,26 +43,26 @@
       font-size: 14px;
     }
 
-    .register-box button {
+    .register-box a.button {
+      display: inline-block;
       width: 95%;
       padding: 12px;
       background: #4a8dff;
-      border: none;
       border-radius: 10px;
       color: white;
       font-size: 16px;
-      cursor: pointer;
       margin-top: 10px;
+      text-decoration: none;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
       transition: all 0.2s ease;
     }
 
-    .register-box button:hover {
+    .register-box a.button:hover {
       background: #336dff;
       box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .register-box button:active {
+    .register-box a.button:active {
       transform: translateY(2px);
       box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
     }
@@ -72,7 +72,7 @@
       font-size: 14px;
     }
 
-    .register-box a {
+    .register-box a.link {
       color: #0044cc;
       text-decoration: none;
     }
@@ -83,13 +83,16 @@
   <div class="register-box">
     <img src="logo.png" alt="Логотип">
     <h2>Регистрация</h2>
-    <form action="messages.html" method="get">
-      <input type="text" placeholder="Имя" required><br>
-      <input type="email" placeholder="Email" required><br>
-      <input type="password" placeholder="Пароль" required><br>
-      <button type="submit">Зарегистрироваться</button>
-    </form>
-    <p>Уже есть аккаунт? <a href="index.html">Войти</a></p>
+    
+    <!-- Поля (пока просто для вида) -->
+    <input type="text" placeholder="Имя" required><br>
+    <input type="email" placeholder="Email" required><br>
+    <input type="password" placeholder="Пароль" required><br>
+    
+    <!-- Кнопка-ссылка вместо формы -->
+    <a href="messages.html" class="button">Зарегистрироваться</a>
+
+    <p>Уже есть аккаунт? <a href="index.html" class="link">Войти</a></p>
   </div>
 
 </body>
