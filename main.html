@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>NovNet - Главная</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    /* Верхушка */
+    header {
+      background: #0044cc;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 18px;
+    }
+
+    /* Контент */
+    .page {
+      display: none;
+      padding: 20px;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* Сообщения */
+    .chat {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Расписание */
+    .schedule-item {
+      background: white;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Новости */
+    .news-item {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Нижнее меню */
+    .bottom-bar {
+      background: #0044cc;
+      color: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .bottom-bar i {
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .welcome {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>NovNet</header>
+
+  <!-- Сообщения -->
+  <div id="messages" class="page active">
+    <p class="welcome">Добро пожаловать в группу колледжа 🎓</p>
+    <div class="chat">💬 Чат группы 1К-23</div>
+    <div class="chat">💬 Общий колледж чат</div>
+    <div class="chat">💬 Чат с преподавателем</div>
+  </div>
+
+  <!-- Расписание -->
+  <div id="schedule" class="page">
+    <h3>Расписание</h3>
+    <div class="schedule-item">📘 Математика — 09:00</div>
+    <div class="schedule-item">💻 Информатика — 11:00</div>
+    <div class="schedule-item">⚙️ Физика — 13:00</div>
+    <div class="schedule-item">✍️ Русский язык — 15:00</div>
+  </div>
+
+  <!-- Новости -->
+  <div id="news" class="page">
+    <h3>Новости</h3>
+    <div class="news-item">📢 Сегодня 1 сентября! С Днём знаний! 🎉</div>
+    <div class="news-item">📢 Завтра начнётся учебная неделя по расписанию.</div>
+  </div>
+
+  <!-- Нижняя панель -->
+  <div class="bottom-bar">
+    <i class="fas fa-comments" onclick="showPage('messages')"></i>
+    <i class="fas fa-calendar" onclick="showPage('schedule')"></i>
+    <i class="fas fa-newspaper" onclick="showPage('news')"></i>
+  </div>
+
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
