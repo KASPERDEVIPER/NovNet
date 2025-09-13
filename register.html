@@ -1,88 +1,46 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Регистрация</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #1a1a1a;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .container {
-      background: #2a2a2a;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
-      width: 300px;
-      text-align: center;
-    }
-
-    h2 {
-      margin-bottom: 20px;
-    }
-
-    input {
-      width: 90%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 8px;
-      outline: none;
-    }
-
-    .btn {
-      width: 95%;
-      padding: 12px;
-      margin-top: 15px;
-      border: none;
-      border-radius: 10px;
-      background: #4cafef;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 4px #2a7cb8;
-      transition: all 0.2s ease;
-    }
-
-    .btn:active {
-      box-shadow: 0 2px #2a7cb8;
-      transform: translateY(2px);
-    }
-
-    .message {
-      margin-top: 15px;
-      font-size: 14px;
-      color: lightgreen;
-      display: none;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NovNet — Регистрация</title>
+<style>
+  :root{--blue:#4a8dff}
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#eaf0ff,#f8fbff);display:flex;align-items:center;justify-content:center;height:100vh}
+  .card{width:360px;background:#fff;border-radius:16px;padding:22px;box-shadow:0 10px 30px rgba(10,20,40,.06);text-align:center}
+  .logo{width:64px;height:64px;margin:0 auto 12px;background:center/cover no-repeat url('logo.png')}
+  h2{margin:6px 0 14px;color:#0b2340}
+  input{width:100%;padding:10px 12px;margin:8px 0;border:1px solid #e6edf8;border-radius:10px;outline:none;font-size:14px}
+  .btn{display:inline-block;width:100%;padding:12px;border-radius:12px;background:var(--blue);color:#fff;border:none;cursor:pointer;font-weight:700;
+       box-shadow:0 6px 0 rgba(42,124,184,.9);transition:transform .12s,box-shadow .12s}
+  .btn:active{transform:translateY(3px);box-shadow:0 3px 0 rgba(42,124,184,.85)}
+  .msg{display:none;margin-top:12px;color:green;font-weight:700}
+  .muted{margin-top:10px;color:#556;font-size:13px}
+  a.link{color:var(--blue);text-decoration:none;font-weight:600}
+</style>
 </head>
 <body>
-  <div class="container">
-    <h2>Регистрация</h2>
-    <form id="registerForm">
-      <input type="text" placeholder="Логин" required><br>
-      <input type="password" placeholder="Пароль" required><br>
-      <button type="submit" class="btn">Зарегистрироваться</button>
-    </form>
-    <p class="message" id="successMessage">✅ Успешная регистрация!</p>
+  <div class="card">
+    <div class="logo" aria-hidden="true"></div>
+    <h2>Создать аккаунт</h2>
+
+    <input id="name" type="text" placeholder="Имя и фамилия">
+    <input id="email" type="email" placeholder="Email">
+    <input id="pass" type="password" placeholder="Пароль">
+
+    <button id="regBtn" class="btn">Зарегистрироваться</button>
+
+    <div class="msg" id="regMsg">✅ Регистрация прошла успешно — переадресация...</div>
+
+    <p class="muted">Уже есть аккаунт? <a class="link" href="index.html">Войти</a></p>
   </div>
 
-  <script>
-    const form = document.getElementById('registerForm');
-    const message = document.getElementById('successMessage');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault(); // блокируем реальную отправку
-      message.style.display = 'block'; // показываем сообщение
-    });
-  </script>
+<script>
+  document.getElementById('regBtn').addEventListener('click', function(){
+    const msg = document.getElementById('regMsg');
+    msg.style.display = 'block';
+    setTimeout(()=> location.href = 'main.html', 700);
+  });
+</script>
 </body>
 </html>
