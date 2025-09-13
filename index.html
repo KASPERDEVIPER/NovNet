@@ -3,114 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NovNet - Вход</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+  <title>Регистрация NovNet</title>
 
-    .phone-frame {
-      background: #0044cc;
-      width: 360px;
-      height: 640px;
-      border-radius: 30px;
-      padding: 30px 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  <!-- Стили -->
+  <link rel="stylesheet" href="style.css">
 
-    .login-box {
-      background: white;
-      border-radius: 20px;
-      padding: 30px 20px;
-      width: 100%;
-      text-align: center;
-    }
+  <!-- Картинка на сайте -->
+  <link rel="icon" type="image/png" href="icon.png">
 
-    .login-box img {
-      width: 80px;
-      margin-bottom: 15px;
-    }
+  <!-- Иконки для домашнего экрана iOS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="app-icon-180.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="app-icon-167.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="app-icon-152.png">
 
-    .login-box h1 {
-      margin: 0 0 20px;
-      font-size: 22px;
-      font-weight: bold;
-      color: #000;
-    }
-
-    .login-box input {
-      width: 90%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 14px;
-    }
-
-    .login-box button {
-      width: 95%;
-      padding: 12px;
-      background: #4a8dff;
-      border: none;
-      border-radius: 10px;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-      transition: all 0.2s ease;
-    }
-
-    .login-box button:hover {
-      background: #336dff;
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .login-box button:active {
-      transform: translateY(2px);
-      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .login-box a {
-      display: block;
-      margin-top: 15px;
-      font-size: 14px;
-      color: #333;
-      text-decoration: none;
-    }
-
-    .login-box a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <!-- Манифест для PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#000000">
 </head>
 <body>
-  <div class="phone-frame">
-    <div class="login-box">
-      <!-- Логотип -->
-      <img src="logo.png" alt="NovNet Logo">
-      <!-- Название -->
-      <h1>NovNet</h1>
-      <!-- Форма входа -->
-      <form action="home.html" method="POST">
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Пароль" required>
-        <button type="submit">Войти</button>
-      </form>
-      <a href="#">Забыли пароль?</a>
-      <!-- Кнопка регистрации -->
-      <a href="register.html">Создать аккаунт</a>
-    </div>
-  </div>
+
+  <h1>Регистрация NovNet</h1>
+  <form id="registerForm">
+    <input type="text" name="username" placeholder="Имя пользователя" required><br>
+    <input type="password" name="password" placeholder="Пароль" required><br>
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+
+  <script src="script.js"></script>
+
+  <!-- Регистрируем сервис-воркер -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+      .then(() => console.log('Service Worker зарегистрирован'));
+    }
+  </script>
+
 </body>
 </html>
