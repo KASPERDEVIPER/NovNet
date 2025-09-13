@@ -140,4 +140,21 @@
 <!-- Манифест для домашнего экрана -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#000000">
+<!-- Фавиконка для браузера -->
+<link rel="icon" type="image/png" href="192.png">
+
+<!-- Иконка для домашнего экрана iOS -->
+<link rel="apple-touch-icon" sizes="180x180" href="192.png">
+
+<!-- Манифест PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+
+<!-- Service Worker (опционально, но нужен для PWA) -->
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+      .then(() => console.log('Service Worker зарегистрирован'));
+  }
+</script>
 
