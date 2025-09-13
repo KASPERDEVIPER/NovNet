@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NovNet - Register</title>
+  <title>NovNet - Регистрация</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -67,10 +67,18 @@
       font-size: 16px;
       cursor: pointer;
       margin-top: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s ease;
     }
 
     .register-box button:hover {
       background: #336dff;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .register-box button:active {
+      transform: translateY(2px);
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
     }
 
     .register-box a {
@@ -92,16 +100,16 @@
       <!-- Логотип -->
       <img src="logo.png" alt="NovNet Logo">
       <!-- Название -->
-      <h1>Register</h1>
+      <h1>Регистрация</h1>
       <!-- Форма регистрации -->
       <form action="index.html" method="POST">
-        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="text" name="name" placeholder="Ваше имя" required>
         <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-        <button type="submit">Sign Up</button>
+        <input type="password" name="password" placeholder="Пароль" required>
+        <input type="password" name="confirm_password" placeholder="Повторите пароль" required>
+        <button type="submit">Зарегистрироваться</button>
       </form>
-      <a href="index.html">Already have an account? Log in</a>
+      <a href="index.html">Уже есть аккаунт? Войти</a>
     </div>
   </div>
 </body>
