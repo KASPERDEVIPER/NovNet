@@ -1,163 +1,48 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NovNet - Вход</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .phone-frame {
-      background: #0044cc;
-      width: 360px;
-      height: 640px;
-      border-radius: 30px;
-      padding: 30px 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .login-box {
-      background: white;
-      border-radius: 20px;
-      padding: 30px 20px;
-      width: 100%;
-      text-align: center;
-    }
-
-    .login-box img {
-      width: 80px;
-      margin-bottom: 15px;
-    }
-
-    .login-box h1 {
-      margin: 0 0 20px;
-      font-size: 22px;
-      font-weight: bold;
-      color: #000;
-    }
-
-    .login-box input {
-      width: 90%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 14px;
-    }
-
-    .login-box button {
-      width: 95%;
-      padding: 12px;
-      background: #4a8dff;
-      border: none;
-      border-radius: 10px;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-      transition: all 0.2s ease;
-    }
-
-    .login-box button:hover {
-      background: #336dff;
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .login-box button:active {
-      transform: translateY(2px);
-      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .login-box a {
-      display: block;
-      margin-top: 15px;
-      font-size: 14px;
-      color: #333;
-      text-decoration: none;
-    }
-
-    .login-box a:hover {
-      text-decoration: underline;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NovNet — Вход</title>
+<style>
+  :root{--blue:#4a8dff;--blue-dark:#336dff}
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f6fb;display:flex;align-items:center;justify-content:center;height:100vh}
+  .card{width:360px;background:#fff;border-radius:16px;padding:24px;box-shadow:0 8px 24px rgba(10,20,40,.08);text-align:center}
+  .logo{width:72px;height:72px;margin:0 auto 12px;background:center/cover no-repeat url('logo.png')}
+  h1{font-size:20px;margin:4px 0 18px;color:#111}
+  input{width:100%;padding:10px 12px;margin:8px 0;border:1px solid #e0e6ef;border-radius:10px;outline:none;font-size:14px}
+  .btn{display:inline-block;width:100%;padding:12px;border-radius:12px;background:var(--blue);color:#fff;border:none;cursor:pointer;font-weight:600;
+       box-shadow:0 6px 0 rgba(42,124,184,.9);transition:transform .12s,box-shadow .12s}
+  .btn:active{transform:translateY(3px);box-shadow:0 3px 0 rgba(42,124,184,.85)}
+  .muted{font-size:13px;color:#556; margin-top:12px}
+  .link{color:var(--blue); text-decoration:none; font-weight:600}
+  .msg{display:none;margin-top:12px;color:green;font-weight:600}
+</style>
 </head>
 <body>
-  <div class="phone-frame">
-    <div class="login-box">
-      <!-- Логотип -->
-      <img src="logo.png" alt="NovNet Logo">
-      <!-- Название -->
-      <h1>NovNet</h1>
-      <!-- Форма входа -->
-      <form action="home.html" method="POST">
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Пароль" required>
-        <button type="submit">Войти</button>
-      </form>
-      <a href="#">Забыли пароль?</a>
-      <!-- Кнопка регистрации -->
-      <a href="register.html">Создать аккаунт</a>
-    </div>
-  </div>
+
+<div class="card">
+  <div class="logo" aria-hidden="true"></div>
+  <h1>Добро пожаловать в NovNet</h1>
+
+  <!-- чисто визуальные поля, не отправляют форму на сервер -->
+  <input id="email" type="email" placeholder="Email" autocomplete="username">
+  <input id="pass" type="password" placeholder="Пароль" autocomplete="current-password">
+
+  <button id="loginBtn" class="btn">Войти</button>
+
+  <div class="msg" id="loginMsg">✅ Успешный вход — перенаправляем...</div>
+
+  <p class="muted">Нет аккаунта? <a class="link" href="register.html">Создать</a></p>
+</div>
+
+<script>
+  document.getElementById('loginBtn').addEventListener('click', function(){
+    const msg = document.getElementById('loginMsg');
+    msg.style.display = 'block';
+    // имитация успешного входа — переходим на main.html через 700ms
+    setTimeout(()=> location.href = 'main.html', 700);
+  });
+</script>
 </body>
 </html>
-<!-- Картинка на сайте -->
-<link rel="icon" type="image/png" href="icon.png">
-
-<!-- Иконки для домашнего экрана iOS -->
-<link rel="apple-touch-icon" sizes="180x180" href="app-icon-180.png">
-<link rel="apple-touch-icon" sizes="167x167" href="app-icon-167.png">
-<link rel="apple-touch-icon" sizes="152x152" href="app-icon-152.png">
-
-<!-- Манифест для PWA -->
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#000000">
-
-<!-- Регистрируем service worker -->
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-      .then(() => console.log('Service Worker зарегистрирован'));
-  }
-</script>
-<!-- Картинка для сайта и домашнего экрана -->
-<link rel="icon" type="image/png" href="192.png">
-<link rel="apple-touch-icon" href="192.png">
-
-<head>
-  <meta charset="UTF-8">
-  <title>Название твоего сайта</title>
-
-  <!-- Разрешаем запуск как веб-приложение -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-
-  <!-- Стиль строки состояния: default / black / black-translucent -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
-  <!-- Название, которое будет под иконкой -->
-  <meta name="apple-mobile-web-app-title" content="Название сайта">
-
-  <!-- Иконка для домашнего экрана -->
-  <link rel="apple-touch-icon" href="192.png">
-  <!-- Можно добавить разные размеры -->
-  <link rel="apple-touch-icon" sizes="180x180" href="192.png">
-
-  <!-- Цвет фона, когда загружается приложение -->
-  <meta name="theme-color" content="#ffffff">
-
-</head>
-
-
